@@ -1,10 +1,17 @@
 pipeline {
     agent any 
+    
+    
     stages {
         stage("Git Checkout") {
             steps{
                 git 'https://github.com/javahometech/myweb.git'
             }
         }
-    }
-}
+        stage("Maven build") {
+            steps{
+             sh "mvn clean package"
+          }
+     }
+ }
+ }
